@@ -1,4 +1,14 @@
-/* Out of Body */
+/* 
+
+Honey I shrunk the page 
+by Craig Morey @ Atomoco
+http://atomo.co
+@atomoco
+A browser favelet to let you shrink the viewport to see any elements outside of it.
+
+Last updated: 29Sept11
+
+*/
 
 function HISTPInit () {
 
@@ -170,21 +180,25 @@ function HISTPGo ( htmlColor , bgColor , scale , anchor ) {
 	
 	// set the transition to make it smooth
 	document.body.style.webkitTransition = '-webkit-transform 500ms';
-	document.body.style.webkitBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
 	document.body.style.MozTransition = '-webkit-transform 500ms';
-	document.body.style.MozBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
 	document.body.style.msTransition = '-webkit-transform 500ms';
-	document.body.style.msBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
 	document.body.style.oTransition = '-webkit-transform 500ms';
-	document.body.style.oBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
 	// zoom back to normal
 	if ( scale == '1' ) {
 	
 		document.body.style.minHeight = HISTPObj.oldBodyMinHeight;
 		document.body.style.overflow = HISTPObj.oldOverflow;
+		
 		document.body.style.webkitTransform = HISTPObj.oldTransform;
 		document.body.style.MozTransform = HISTPObj.oldTransform;
 		document.body.style.msTransform = HISTPObj.oldTransform;
+		document.body.style.oTransform = HISTPObj.oldTransform;
+		
+		document.body.style.webkitBoxShadow = '';
+		document.body.style.MozBoxShadow = '';
+		document.body.style.msBoxShadow = '';
+		document.body.style.oBoxShadow = '';
+		
 		if ( htmlColor != undefined ) {
 			document.body.parentNode.style.background = HISTPObj.oldHTMLBg;
 		}
@@ -199,14 +213,22 @@ function HISTPGo ( htmlColor , bgColor , scale , anchor ) {
 	
 		document.body.style.minHeight = '100%';
 		document.body.style.overflow = 'visible';
+		
 		document.body.style.webkitTransformOrigin = '50% ' + anchor;
 		document.body.style.MozTransformOrigin = '50% ' + anchor;
 		document.body.style.msTransformOrigin = '50% ' + anchor;
 		document.body.style.oTransformOrigin = '50% ' + anchor;
+		
 		document.body.style.webkitTransform = 'scale(' + scale + ') translateZ(0)';
 		document.body.style.MozTransform = 'scale(' + scale + ')';
 		document.body.style.msTransform = 'scale(' + scale + ')';
 		document.body.style.oTransform = 'scale(' + scale + ')';
+		
+		document.body.style.webkitBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
+		document.body.style.MozBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
+		document.body.style.msBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
+		document.body.style.oBoxShadow = '4px 4px 24px rgba( 0 , 0 , 0 , 0.8 )';
+	
 		if ( htmlColor != undefined ) {
 			document.body.parentNode.style.background = htmlColor;
 		}
