@@ -185,19 +185,11 @@ function HISTPGo ( htmlColor , bgColor , scale , anchor ) {
 	document.body.style.oTransition = '-webkit-transform 500ms';
 	// zoom back to normal
 	if ( scale == '1' ) {
-	
-		document.body.style.minHeight = HISTPObj.oldBodyMinHeight;
-		document.body.style.overflow = HISTPObj.oldOverflow;
 		
 		document.body.style.webkitTransform = HISTPObj.oldTransform;
 		document.body.style.MozTransform = HISTPObj.oldTransform;
 		document.body.style.msTransform = HISTPObj.oldTransform;
 		document.body.style.oTransform = HISTPObj.oldTransform;
-		
-		document.body.style.webkitBoxShadow = '';
-		document.body.style.MozBoxShadow = '';
-		document.body.style.msBoxShadow = '';
-		document.body.style.oBoxShadow = '';
 		
 		if ( htmlColor != undefined ) {
 			document.body.parentNode.style.background = HISTPObj.oldHTMLBg;
@@ -206,7 +198,18 @@ function HISTPGo ( htmlColor , bgColor , scale , anchor ) {
 			document.body.style.background = HISTPObj.oldBodyBg;
 		}
 		setTimeout( function () {
-			document.body.style.webkitTransformOrigin = '';
+			document.body.style.minHeight = HISTPObj.oldBodyMinHeight;
+			document.body.style.overflow = HISTPObj.oldOverflow;
+		
+			document.body.style.webkitTransformOrigin = '';	
+			document.body.style.MozTransformOrigin = '';	
+			document.body.style.msTransformOrigin = '';	
+			document.body.style.oTransformOrigin = '';	
+			
+			document.body.style.webkitBoxShadow = '';
+			document.body.style.MozBoxShadow = '';
+			document.body.style.msBoxShadow = '';
+			document.body.style.oBoxShadow = '';
 		} , 500 );
 	// zoom out of body
 	} else {
